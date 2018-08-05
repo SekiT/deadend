@@ -7,5 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "https://github.com/SekiT",
-  "license": "WTFPL"
+  "license": "WTFPL",
+  "dependencies": {
+    "hyperhtml": "^2.13.0",
+    "rxjs": "^6.2.2"
+  }
 }
