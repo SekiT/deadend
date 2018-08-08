@@ -13,7 +13,7 @@ export default class Route {
 
   match(path) {
     const result = this.pathRegex.exec(path);
-    if (result && result.groups) {
+    if (result) {
       return {
         path: result[0],
         params: result.groups,
