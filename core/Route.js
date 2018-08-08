@@ -6,7 +6,7 @@ export default class Route {
       .map(encodeURI)
       .map(fragment => (fragment.startsWith(':') ? `(?<${fragment.slice(1)}>[^/]+)` : fragment))
       .join('/');
-    this.pathRegex = new RegExp(`^/${regexSource}$`);
+    this.pathRegex = new RegExp(`^/${regexSource}`);
     this.handler = handler;
     this.children = children;
   }
