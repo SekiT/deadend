@@ -12,10 +12,6 @@ export default class Router {
       throw NoRouteFoundForDefaultPath(defaultPath);
     }
     this.defaultPath = path;
-    window.onhashchange = ({ newURL, oldURL }) => {
-      console.log(newURL);
-      console.log(oldURL);
-    };
   }
 
   // Returns:
@@ -32,7 +28,6 @@ export default class Router {
   //   ],
   // }
   static traverse(path, routes, matches = [], matchedPath = '') {
-    console.log(path);
     let found = null;
     routes.find((route) => {
       // route.match returns null | { path: string, params: { *paramName*: string }}
@@ -57,7 +52,6 @@ export default class Router {
 
   moveTo(path) {
     const { path: matchedPath, matches } = Router.traverse(path, this.routes);
-    console.log({ location });
     this.location.hash = matchedPath;
     matches.forEach(({ route, result }) => route.handler(result));
     return matchedPath;
