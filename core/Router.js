@@ -1,6 +1,6 @@
 export const NoRouteFoundForDefaultPath = path => ({
   name: 'NoRouteFoundForDefaultPath',
-  message: `No route found for the defaultPath: ${path}`,
+  message: `No route found for the defaultPath: '${path}'`,
 });
 
 export default class Router {
