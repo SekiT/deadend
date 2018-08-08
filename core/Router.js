@@ -3,7 +3,7 @@ export const NoRouteFoundForDefaultPath = path => ({
   message: `No route found for the defaultPath: ${path}`,
 });
 
-export class Router {
+export default class Router {
   constructor(location, defaultPath = '/', routes) {
     this.location = location;
     this.routes = routes;
