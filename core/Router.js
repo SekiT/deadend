@@ -4,7 +4,7 @@ export const NoRouteFoundForDefaultPath = path => ({
 });
 
 export default class Router {
-  constructor(window, defaultPath = '/', routes) {
+  constructor(window, defaultPath, routes) {
     this.location = window.location;
     this.routes = routes;
     const { path, matches } = Router.traverse(defaultPath, routes);
