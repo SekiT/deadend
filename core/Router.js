@@ -41,8 +41,10 @@ export default class Router {
     if (found === null) {
       return { path: matchedPath, matches };
     }
-    const matchedPart = found.result.path;
-    const { route: { children } } = found;
+    const {
+      result: { path: matchedPart },
+      route: { children },
+    } = found;
     if (children.length > 0) {
       const childPath = path.split(matchedPart).slice(1).join('');
       return Router.traverse(childPath, children, [...matches, found], matchedPath + matchedPart);
