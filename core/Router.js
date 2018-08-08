@@ -4,27 +4,35 @@ export const NoRouteFoundForDefaultPath = path => ({
 });
 
 export default class Router {
-  constructor(location, defaultPath = '/', routes) {
-    this.location = location;
+  constructor(window, defaultPath = '/', routes) {
+    this.location = window.location;
     this.routes = routes;
-    const matches = Router.traverse(defaultPath, routes);
+    const { path, matches } = Router.traverse(defaultPath, routes);
     if (matches.length === 0) {
       throw NoRouteFoundForDefaultPath(defaultPath);
     }
-    this.defaultPath = matches[matches.length - 1].result.path;
+    this.defaultPath = path;
+    window.onhashchange = ({ newURL, oldURL }) => {
+      console.log(newURL);
+      console.log(oldURL);
+    };
   }
 
-  // Returns the `matches`:
-  // [
-  //   {
-  //     route: Route,
-  //     result: {
-  //       path: string,
-  //       params: { *paramName*: string },
-  //     },
-  //   }
-  // ]
-  static traverse(path, routes, matches = []) {
+  // Returns:
+  // {
+  //   path: string,
+  //   matches: [
+  //     {
+  //       route: Route,
+  //       result: {
+  //         path: string,
+  //         params: { *paramName*: string },
+  //       },
+  //     }
+  //   ],
+  // }
+  static traverse(path, routes, matches = [], matchedPath = '') {
+    console.log(path);
     let found = null;
     routes.find((route) => {
       // route.match returns null | { path: string, params: { *paramName*: string }}
@@ -36,23 +44,22 @@ export default class Router {
       return false;
     });
     if (found === null) {
-      return [];
+      return { path: matchedPath, matches };
     }
+    const matchedPart = found.result.path;
     const { route: { children } } = found;
     if (children.length > 0) {
-      const childPath = path.split(found.result.path).slice(1).join('');
-      return Router.traverse(childPath, children, [...matches, found]);
+      const childPath = path.split(matchedPart).slice(1).join('');
+      return Router.traverse(childPath, children, [...matches, found], matchedPath + matchedPart);
     }
-    return [...matches, found];
+    return { path: matchedPath + matchedPart, matches: [...matches, found] };
   }
 
   moveTo(path) {
-    const matches = Router.traverse(path, this.routes);
-    const actualPath = matches[matches.length - 1].result.path;
-    this.location.hash = actualPath;
-    return matches.reduce('', (matchedPath, { route, result }) => {
-      route.handler(result);
-      return matchedPath + result.path;
-    });
+    const { path: matchedPath, matches } = Router.traverse(path, this.routes);
+    console.log({ location });
+    this.location.hash = matchedPath;
+    matches.forEach(({ route, result }) => route.handler(result));
+    return matchedPath;
   }
 }
