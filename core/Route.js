@@ -1,5 +1,5 @@
 export default class Route {
-  constructor(pathTemplate, handler, children) {
+  constructor(pathTemplate, handler, children = []) {
     const regexSource = pathTemplate
       .split('/')
       .slice(1)
