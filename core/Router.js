@@ -64,7 +64,9 @@ export default class Router {
   moveTo(path) {
     const { path: matchedPath, matches } = Router.traverse(path, this.routes);
     this.location.hash = matchedPath;
-    matches.forEach(({ route, result }) => route.handler(result));
+    matches.forEach(({ route, result: { params } }) => {
+      route.handler({ path: matchedPath, params });
+    });
     return matchedPath;
   }
 }
