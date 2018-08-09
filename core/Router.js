@@ -41,11 +41,11 @@ export default class Router {
     routes.find((route) => {
       // route.match returns null | { path: string, params: object }
       const result = route.match(path);
-      if (result !== null) {
-        found = { route, result };
-        return true;
+      if (result === null) {
+        return false;
       }
-      return false;
+      found = { route, result };
+      return true;
     });
     if (found === null) {
       return { path: matchedPath, matches };
