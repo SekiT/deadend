@@ -4,14 +4,23 @@ export const NoRouteFoundForDefaultPath = path => ({
 });
 
 export default class Router {
-  constructor(window, defaultPath, routes) {
-    this.location = window.location;
+  constructor(location, defaultPath, routes) {
+    this.location = location;
     this.routes = routes;
     const { path, matches } = Router.traverse(defaultPath, routes);
     if (matches.length === 0) {
       throw NoRouteFoundForDefaultPath(defaultPath);
     }
-    this.defaultPath = path;
+    this.currentPath = path;
+  }
+
+  startTracking(window) {
+    window.addEventListener('hashchange', ({ newURL }) => {
+      const newHash = new URL(newURL).hash;
+      if (newHash !== this.currentPath) {
+        this.moveTo(newHash);
+      }
+    });
   }
 
   // Returns:
