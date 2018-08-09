@@ -39,7 +39,7 @@ export default class Router {
   static traverse(path, routes, matches = [], matchedPath = '') {
     let found = null;
     routes.find((route) => {
-      // route.match returns null | { path: string, params: { *paramName*: string }}
+      // route.match returns null | { path: string, params: object }
       const result = route.match(path);
       if (result !== null) {
         found = { route, result };
