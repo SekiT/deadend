@@ -17,17 +17,15 @@ export default class Route {
     this.children = children;
   }
 
-  match(path) {
-    const result = this.pathRegex.exec(path);
+  match(rawPath) {
+    const result = this.pathRegex.exec(rawPath);
     if (result) {
+      const [path, ...matches] = result;
       const params = {};
       this.paramNames.forEach((paramName, index) => {
-        params[paramName] = result[index + 1];
+        params[paramName] = matches[index];
       });
-      return {
-        path: result[0],
-        params,
-      };
+      return { path, params };
     }
     return null;
   }
