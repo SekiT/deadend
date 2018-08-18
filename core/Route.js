@@ -1,9 +1,16 @@
 export default class Route {
   constructor(pathTemplate, handler, children = []) {
+    this.paramNames = [];
     const regexSource = pathTemplate
       .split('/')
       .map(encodeURI)
-      .map(fragment => (fragment.startsWith(':') ? `(?<${fragment.slice(1)}>[^/]+)` : fragment))
+      .map((fragment) => {
+        if (fragment.startsWith(':')) {
+          this.paramNames.push(fragment.slice(1));
+          return '([^/]+)';
+        }
+        return fragment;
+      })
       .join('/');
     this.pathRegex = new RegExp(`^${regexSource}`);
     this.handler = handler;
@@ -13,9 +20,13 @@ export default class Route {
   match(path) {
     const result = this.pathRegex.exec(path);
     if (result) {
+      const params = {};
+      this.paramNames.forEach((paramName, index) => {
+        params[paramName] = result[index + 1];
+      });
       return {
         path: result[0],
-        params: result.groups,
+        params,
       };
     }
     return null;
