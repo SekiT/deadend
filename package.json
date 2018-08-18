@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build-dev": "rollup -c",
-    "build-prod": "rollup -c --environment MINIFY"
+    "watch": "rollup -c --watch",
+    "build": "rollup -c --environment MINIFY",
+    "test": "rollup -c rollup.config.test.js | node"
   },
   "author": "https://github.com/SekiT",
   "license": "WTFPL",
