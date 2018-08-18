@@ -3,7 +3,6 @@ export default class Route {
     this.paramNames = [];
     const regexSource = pathTemplate
       .split('/')
-      .map(encodeURI)
       .map((fragment) => {
         if (fragment.startsWith(':')) {
           this.paramNames.push(fragment.slice(1));
