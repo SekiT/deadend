@@ -18,14 +18,14 @@ export default class Route {
 
   match(rawPath) {
     const result = this.pathRegex.exec(rawPath);
-    if (result) {
-      const [path, ...matches] = result;
-      const params = {};
-      this.paramNames.forEach((paramName, index) => {
-        params[paramName] = matches[index];
-      });
-      return { path, params };
+    if (result === null) {
+      return null;
     }
-    return null;
+    const [path, ...matches] = result;
+    const params = {};
+    this.paramNames.forEach((paramName, index) => {
+      params[paramName] = matches[index];
+    });
+    return { path, params };
   }
 }
