@@ -1,7 +1,5 @@
 export default {
   input: 'test/index.js',
-  output: {
-    format: 'cjs',
-  },
+  output: { format: 'cjs' },
   external: ['tape'],
 };
