@@ -20,7 +20,7 @@ export default () => {
     t.end();
   });
 
-  test('Route matches or not correctly', (t) => {
+  test('Route matches correctly', (t) => {
     [
       ['/', '/', { path: '/', params: {} }],
       ['/', '/path', { path: '/', params: {} }],

@@ -39,7 +39,6 @@ export default class Router {
   static traverse(path, routes, matches = [], matchedPath = '') {
     let found = null;
     routes.find((route) => {
-      // route.match returns null | { path: string, params: object }
       const result = route.match(path);
       if (result === null) {
         return false;
@@ -50,10 +49,7 @@ export default class Router {
     if (found === null) {
       return { path: matchedPath, matches };
     }
-    const {
-      result: { path: matchedPart },
-      route: { children },
-    } = found;
+    const { result: { path: matchedPart }, route: { children } } = found;
     if (children.length > 0) {
       const childPath = path.substring(matchedPart.length);
       return Router.traverse(childPath, children, [...matches, found], matchedPath + matchedPart);
