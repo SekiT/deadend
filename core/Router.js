@@ -23,19 +23,6 @@ export default class Router {
     });
   }
 
-  // Returns:
-  // {
-  //   path: string,
-  //   matches: [
-  //     {
-  //       route: Route,
-  //       result: {
-  //         path: string,
-  //         params: { *paramName*: string },
-  //       },
-  //     }
-  //   ],
-  // }
   static traverse(path, routes, matches = [], matchedPath = '') {
     let found = null;
     routes.find((route) => {
