@@ -7,18 +7,18 @@ export default class Router {
   constructor(location, defaultPath, routes) {
     this.location = location;
     this.routes = routes;
-    const { path, matches } = Router.traverse(defaultPath, routes);
+    const { matches } = Router.traverse(defaultPath, routes);
     if (matches.length === 0) {
       throw NoRouteFoundForDefaultPath(defaultPath);
     }
-    this.currentPath = path;
+    this.currentPath = defaultPath;
   }
 
   startTracking(window) {
     window.addEventListener('hashchange', ({ newURL }) => {
-      const newHash = new URL(newURL).hash;
-      if (newHash !== this.currentPath) {
-        this.moveTo(newHash);
+      const newPath = new URL(newURL).hash.slice(1); // Trim leading '#'
+      if (newPath !== this.currentPath) {
+        this.moveTo(newPath);
       }
     });
   }
@@ -46,7 +46,7 @@ export default class Router {
 
   moveTo(path) {
     const { path: matchedPath, matches } = Router.traverse(path, this.routes);
-    this.location.hash = matchedPath;
+    this.location.hash = `#${matchedPath}`;
     matches.forEach(({ route, result: { params } }) => {
       route.handler({ path: matchedPath, params });
     });

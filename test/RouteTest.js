@@ -22,10 +22,15 @@ export default () => {
 
   test('Route matches correctly', (t) => {
     [
-      ['/', '/', { path: '/', params: {} }],
-      ['/', '/path', { path: '/', params: {} }],
+      ['', '', { path: '', params: {} }],
+      ['', '/', { path: '', params: {} }],
+      ['', '/path', { path: '', params: {} }],
+      ['', 'path', null],
       ['/', '', null],
       ['/', 'path', null],
+      ['/', '/path', null],
+      ['/', '/', { path: '/', params: {} }],
+      ['/', '//', { path: '/', params: {} }],
       ['/path', '/path', { path: '/path', params: {} }],
       ['/path1', '/path1/path2', { path: '/path1', params: {} }],
       ['/path1', '/path2/path1', null],

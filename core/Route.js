@@ -22,6 +22,10 @@ export default class Route {
       return null;
     }
     const [path, ...matches] = result;
+    const succeedingChar = rawPath.charAt(path.length);
+    if (succeedingChar !== '' && succeedingChar !== '/') {
+      return null;
+    }
     const params = {};
     this.paramNames.forEach((paramName, index) => {
       params[paramName] = matches[index];
