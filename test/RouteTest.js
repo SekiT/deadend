@@ -1,5 +1,5 @@
 import test from 'tape';
-import Route from '../core/Route';
+import Route from '../lib/Route';
 
 export default () => {
   test('Route parses pathTemplate', (t) => {

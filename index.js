@@ -1,5 +1,5 @@
-import Router from './core/Router';
-import Route from './core/Route';
+import Router from './lib/Router';
+import Route from './lib/Route';
 
 import root from './views/root';
 import navBar from './views/navBar';
