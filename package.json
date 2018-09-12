@@ -1,7 +1,7 @@
 {
-  "name": "hyprx",
+  "name": "deadend",
   "version": "0.0.0",
-  "description": "",
+  "description": "My deadend of frontend",
   "main": "index.js",
   "scripts": {
     "watch": "rollup -c --watch",
