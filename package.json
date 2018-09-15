@@ -11,9 +11,7 @@
   "author": "https://github.com/SekiT",
   "license": "WTFPL",
   "repository": "https://github.com/SekiT/hyprx",
-  "dependencies": {
-    "rxjs": "^6.2.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^13.0.0",
