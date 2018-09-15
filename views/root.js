@@ -1,5 +1,6 @@
-import { bind } from '../node_modules/hyperhtml/esm/index';
+import view from '../lib/view';
+import navbar from './navbar';
 
-const render = bind(document.getElementById('root'));
-
-export default navbar => render`${navbar}`;
+export default view('deadend-root', [], () => `
+  <${navbar}></${navbar}>
+`);

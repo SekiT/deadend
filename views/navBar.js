@@ -1,5 +1,5 @@
-import { wire } from '../node_modules/hyperhtml/esm/index';
+import view from '../lib/view';
 
-const render = wire();
-
-export default path => render`<nav>${path}</nav>`;
+export default view('deadend-navbar', [''], path => `
+  <nav>${path}</nav>
+`);
