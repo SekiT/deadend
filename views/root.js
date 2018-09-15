@@ -5,5 +5,5 @@ export default view('deadend-root', [], () => ({
   html: `
     <${navbar}></${navbar}>
   `,
-  eventListeners: {},
+  attachments: {},
 }));
