@@ -1,0 +1,17 @@
+nav {
+  background:linear-gradient(to bottom, #cccccc 80%, #666666);
+  height:55px;
+  left:0;
+  position:fixed;
+  top:0;
+  width:100%;
+}
+
+nav .title {
+  color:black;
+  font-size:30px;
+  line-height:50px;
+  margin:auto 10px;
+  text-decoration:none;
+  vertical-align:middle;
+}
