@@ -1,17 +1,27 @@
 nav {
-  background:linear-gradient(to bottom, #cccccc 80%, #666666);
-  height:55px;
-  left:0;
-  position:fixed;
-  top:0;
-  width:100%;
+  background: linear-gradient(to bottom, #cccccc 85%, #666666);
+  height: 55px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 nav .title {
-  color:black;
-  font-size:30px;
-  line-height:50px;
-  margin:auto 10px;
-  text-decoration:none;
-  vertical-align:middle;
+  color: black;
+  font-size: 30px;
+  line-height: 50px;
+  margin: auto 10px;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+body {
+  background-color: #e0e0e0;
+  color: black;
+  padding: 55px 15px 0 0;
+}
+
+h1 {
+  filter: drop-shadow(1px 1px 5px #333333);
 }

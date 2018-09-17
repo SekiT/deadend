@@ -3,12 +3,13 @@ import Route from './lib/Route';
 import { update } from './lib/view';
 import views from './views/index';
 
-const { root, navbar } = views;
+const { root, navbar, routeSwitch } = views;
 
 const router = new Router(window.location, '', [
-  new Route('', ({ path }) => update(navbar)(path), [
-    new Route('/foo', () => {}),
-    new Route('/bar/:barName', () => {}),
+  new Route('', ({ path }) => { update(navbar)(path); update(routeSwitch)('home'); }, [
+    new Route('/input', () => update(routeSwitch)('input')),
+    new Route('/http', () => update(routeSwitch)('http')),
+    new Route('/tick', () => update(routeSwitch)('tick')),
   ]),
 ]);
 
