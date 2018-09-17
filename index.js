@@ -5,11 +5,22 @@ import views from './views/index';
 
 const { root, navbar, routeSwitch } = views;
 
+const handlePath = path => () => {
+  update(navbar)(path);
+  update(routeSwitch)(path);
+};
+
+const handleRoot = ({ path }) => {
+  if (path === '') {
+    handlePath('home')();
+  }
+};
+
 const router = new Router(window.location, '', [
-  new Route('', ({ path }) => { update(navbar)(path); update(routeSwitch)('home'); }, [
-    new Route('/input', () => update(routeSwitch)('input')),
-    new Route('/http', () => update(routeSwitch)('http')),
-    new Route('/tick', () => update(routeSwitch)('tick')),
+  new Route('', handleRoot, [
+    new Route('/input', handlePath('input')),
+    new Route('/http', handlePath('http')),
+    new Route('/tick', handlePath('tick')),
   ]),
 ]);
 
