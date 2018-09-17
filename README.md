@@ -17,7 +17,9 @@ Frontend frameworks are overdoing things and too big.
 
 You may stop, then find the right way.
 
-### `view(viewName, defaultArgs, fun)`
+### View
+
+#### `view(viewName, defaultArgs, fun)`
 
 Defines a `view`.
 
@@ -44,7 +46,7 @@ const greet = view('myapp-greet', ['world'], name => ({
   `,
   attachments: {
     button: {
-      onclick: () => window.alert(`Hello, ${name}`),
+      onclick: () => window.alert(`Hello, ${name}!`),
     },
   },
 }));
@@ -59,8 +61,16 @@ const container = view('myapp-container', [], color => ({
     },
   },
 }));
+
+document.body.innerHTML = `<${container}></${container}>`;
 ```
 
 Note that `container` has no way to specify the `name` of child `greet` view.
 
 If you want to update the `name`, just updating only `greet` suffices.
+
+#### `update(viewName, id = '')(args)`
+
+Updates the view by passing `args` to the view function.
+
+For example `update(greet)('John')` updates the `greet` view above.
