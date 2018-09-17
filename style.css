@@ -16,6 +16,19 @@ nav .title {
   vertical-align: middle;
 }
 
+.navbar-item {
+  border-left: 1px solid black;
+  display: inline-block;
+  margin: 0;
+  padding: 0 10px;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.navbar-item.active {
+  border-bottom: 1px solid black;
+}
+
 body {
   background-color: #e0e0e0;
   color: black;
