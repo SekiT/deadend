@@ -42,7 +42,7 @@ Example:
 const greet = view('myapp-greet', ['world'], name => ({
   html: `
     <p>Hello, ${name}!</p>
-    <button>Click me/button>
+    <button>Click me</button>
   `,
   attachments: {
     button: {
