@@ -13,6 +13,16 @@ Frontend frameworks are overdoing things and too big.
 - `observers` watch the state change, and do logics or `update` views.
 - Aim for less dependencies. Hate npm trash.
 
+## Try locally
+
+```sh
+$ npm i
+$ npm run watch
+
+# In another shell
+$ open "http://localhost:10001/index.html"
+```
+
 ## The way of deadend
 
 You may stop, then find the right way.
