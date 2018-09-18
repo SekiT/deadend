@@ -1,6 +1,6 @@
 # deadend
 
-My deadend of frontend.
+My deadend of frontend. [Deployed on GitHub pages.](https://sekit.github.io/deadend/)
 
 ## Motivation
 
@@ -16,6 +16,7 @@ Frontend frameworks are overdoing things and too big.
 ## Try locally
 
 ```sh
+# I think yarn is a redundant dependency
 $ npm i
 $ npm run watch
 
