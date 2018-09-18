@@ -17,6 +17,7 @@ const subscribe = (observer) => {
 
 tickSubject.subscribe(() => {
   onNext(container.pressed);
+  container.pressed = 'none';
 });
 
 export default { next, subscribe };

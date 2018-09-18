@@ -1,15 +1,15 @@
 import view, { update } from '../../lib/view';
-import exclusiveControlSubject from '../../subjects/exclusiveControlSubject';
+import filterInputSubject from '../../subjects/filterInputSubject';
 
 const name = 'deadend-tick-exclusive-control-output';
 
 export default view(name, ['none'], pressed => ({
   html: `
-    <span>Last pressed in a tick: ${pressed}</span>
+    <div>Last pressed in a tick: ${pressed}</div>
   `,
   attachments: {},
 }));
 
-exclusiveControlSubject.subscribe((pressed) => {
+filterInputSubject.subscribe((pressed) => {
   update(name)(pressed);
 });
