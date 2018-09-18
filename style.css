@@ -25,14 +25,14 @@ nav .title {
   vertical-align: middle;
 }
 
-.navbar-item.active {
+.active {
   border-bottom: 1px solid black;
 }
 
 body {
   background-color: #e0e0e0;
   color: black;
-  padding: 55px 15px 0 0;
+  padding: 55px 0 0 15px;
 }
 
 h1 {
