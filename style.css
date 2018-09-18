@@ -9,6 +9,7 @@ nav {
 
 nav .title {
   color: black;
+  filter: drop-shadow(0 0 3px #333333);
   font-size: 30px;
   line-height: 50px;
   margin: auto 10px;
@@ -37,5 +38,9 @@ body {
 }
 
 h1 {
-  filter: drop-shadow(1px 1px 5px #333333);
+  filter: drop-shadow(0 0 5px #333333);
+}
+
+a {
+  color: #336699;
 }
