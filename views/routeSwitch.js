@@ -1,8 +1,8 @@
 import view from '../lib/view';
 import home from './home';
 import input from './input/input';
-import http from './http';
-import tick from './tick';
+import http from './http/http';
+import tick from './tick/tick';
 
 const pathToView = {
   home, input, http, tick,

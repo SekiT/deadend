@@ -1,5 +1,5 @@
-import view, { update } from '../lib/view';
-import httpOutput from './http/httpOutput';
+import view, { update } from '../../lib/view';
+import httpOutput from './httpOutput';
 
 export default view('deadend-http', [], () => ({
   html: `

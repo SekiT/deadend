@@ -1,7 +1,7 @@
-import view from '../lib/view';
-import tickSubject from '../subjects/tickSubject';
-import tickEverySecond from './tick/tickEverySecond';
-import filterInput from './tick/filterInput';
+import view from '../../lib/view';
+import tickSubject from '../../subjects/tickSubject';
+import tickEverySecond from './tickEverySecond';
+import filterInput from './filterInput';
 
 export default view('deadend-tick', [], () => ({
   html: `
