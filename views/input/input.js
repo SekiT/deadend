@@ -1,5 +1,5 @@
-import view from '../lib/view';
-import inputSubject from '../subjects/inputSubject';
+import view from '../../lib/view';
+import inputSubject from '../../subjects/inputSubject';
 import nearRealtimeOutput from './nearRealtimeOutput';
 import onEventOutput from './onEventOutput';
 

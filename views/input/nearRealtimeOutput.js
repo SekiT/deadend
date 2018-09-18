@@ -1,5 +1,5 @@
-import view from '../lib/view';
-import inputObserver from '../observers/inputObserver';
+import view from '../../lib/view';
+import inputObserver from '../../observers/inputObserver';
 
 const name = 'deadend-near-realtime-output';
 

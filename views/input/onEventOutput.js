@@ -1,5 +1,5 @@
-import view, { update } from '../lib/view';
-import inputSubject from '../subjects/inputSubject';
+import view, { update } from '../../lib/view';
+import inputSubject from '../../subjects/inputSubject';
 
 const name = 'deadend-on-event-output';
 
