@@ -6,7 +6,7 @@ const name = 'deadend-near-realtime-output';
 export default view(name, [''], value => ({
   html: `
     <p>
-      This is updated near-readlitime. Value is: ${value}
+      This is updated near-realtime. Value is: ${value}
     </p>
   `,
   attachments: {},
